@@ -1,39 +1,18 @@
 package gameLogic
 
 import Structures._
-import main.gameLogic.Board
 
 object GameMenager {
-  val board=Board()
   var turn:Color=White
 
-  def update(from:Position,to:Position){
-
-    if(board.isEmpty(from))
-      throw IllegalMoveException("No figure on position " ++ from.toString)
-
-    if(board.color(from)!=turn)
-      throw IllegalMoveException("Not your turn!")
-
-    if(board.isEmpty(to)){
-      move(from,to)
-      return
+  def action(from:Position,to:Position): Unit ={
+    if(ActionMenager.isAction(from,to)){
+      ActionMenager.action(from,to)
+      turn=turn.other
     }
-
-    if(board.color(to)==turn.other){
-      capture(from,to)
-      return
-    }
-
-    throw IllegalMoveException("Square occupied by your figure " ++ to.toString)
+    else
+      println("Bad move")
   }
 
-  def move(from: Position,to:Position){
-    board.changePosition(from,to)
-    turn=turn.other
-  }
-  def capture(from:Position,to:Position){
-    board.remove(to)
-    move(from,to)
-  }
+  override def toString = s"GameMenager\n\r Turn: $turn\n\r $ActionMenager"
 }

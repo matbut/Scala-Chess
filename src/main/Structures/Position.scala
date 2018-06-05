@@ -2,13 +2,15 @@ package Structures
 
 class Position private(val x:Int,val y:Int) {
 
+
+
   //Basic operators
   def unary_- = new Position(-x, -y)
   def + (other: Position) = new Position(x+other.x,y+other.y)
   def - (other: Position): Position = this+(-other)
   def * (scalar: Int) = new Position(x*scalar,y*scalar)
 
-  def -> (vector: Vect) : Position = this+vector.free().to //tralnslation
+  def -> (vector: Vect) : Position = this+vector.free.to //tralnslation
 
   override def toString:String = "(" ++ x.toString ++ "," ++ y.toString() ++ ")"
 
@@ -30,5 +32,8 @@ class Position private(val x:Int,val y:Int) {
 }
 object Position{
   def apply(x: Int,y: Int) = new Position(x,y)
-  def apply(x: Char,y: Int) = new Position(x.toInt-64,y)
+  def apply(x: Char,y: Int) = new Position(x.toInt-'A'+1,y)
+  def apply(s:Symbol) = new Position(s.toString()(1)-'A'+1,s.toString()(2)-'1'+1)
+
+  implicit def symbol2Position(position: Symbol):Position=Position(position)
 }

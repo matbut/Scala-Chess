@@ -1,86 +1,98 @@
-package main.gameLogic
+package gameLogic
+
 
 import Structures._
-import gameLogic._
 
-import scala.collection.immutable.Stream.Empty
 import scala.collection.mutable
 
-class Board private(var figuresPosition: mutable.HashMap[Position, Figure]){
+class Board private(var piecesPlacement: mutable.HashMap[Position, Piece]){
+
+  var kingPosition:Map[Color,Position]=Map()
+  piecesPlacement
+    .filter({case (position:Position,piece:Piece) => piece.isInstanceOf[King]})
+    .foreach({case (position:Position,piece:Piece) => kingPosition+=(piece.color -> position)})
 
   //TODO is Position on board?
+  //Basic info
 
   def isEmpty(position: Position):Boolean = !isOccupied(position)
 
-  def isOccupied(position: Position):Boolean =
-    figuresPosition.contains(position)
+  def isOccupied(position: Position):Boolean = piecesPlacement.contains(position)
 
+  def piece(position: Position):Piece = piecesPlacement(position)
 
-  def figure(position: Position):Figure =
-    figuresPosition(position)
+  def color(position: Position):Color = piece(position).color
 
+  //More advanced info
 
-  def color(position: Position):Color =
-    figure(position).color
-
-
-  def changePosition(oldPos: Position,newPos: Position):Boolean = {
-    //TODO it better?
-    val optionFigure = figuresPosition.remove(oldPos)
-    if (optionFigure.nonEmpty){
-      figuresPosition += ((newPos,optionFigure.get))
-      true
-    }else
-      false
+  def pieces(color: Color):Set[(Position,Piece)] = {
+    piecesPlacement.filter({case((position:Position,piece:Piece)) => piece.color==color}).toSet
   }
 
-  def remove(oldPos: Position):Boolean = figuresPosition.remove(oldPos).nonEmpty
+  def isClear(from:Position,to:Position):Boolean = {
+    Vect(from,to).contains.forall({case (position:Position) => !piecesPlacement.contains(position)})
+  }
+
+  //Operations on board
+
+  def replace(oldPos: Position, newPos: Position){
+    val piece = piecesPlacement.remove(oldPos).get
+    piecesPlacement += ((newPos,piece))
+    if(piece.isInstanceOf[King])
+      kingPosition+=(piece.color -> newPos)
+  }
+
+  def remove(oldPos: Position): Unit ={
+    piecesPlacement.remove(oldPos)
+  }
 
   override def toString:String = {
-    val newLine="\n\r"
 
     var stringBuilder=new StringBuilder
-    stringBuilder ++= "  " ++ "ABCDEFGH" ++ "  " ++ newLine
+    stringBuilder ++= "  ABCDEFGH  \n\r"
     for(i <- 8 to 1 by -1){
-      stringBuilder ++= i.toString ++ "|"
+      stringBuilder ++= s"$i|"
       for(j <- 1 to 8){
         val position=Position(j,i)
         if (isOccupied(position))
-          stringBuilder ++= figure(position).toString
+          stringBuilder ++= piece(position).toString
         else
           stringBuilder ++= "."
       }
-      stringBuilder ++= "|" ++ i.toString ++ newLine
+      stringBuilder ++= s"|$i\n\r"
     }
-    stringBuilder ++= "  " ++ "ABCDEFGH" ++ "  " ++ newLine
+    stringBuilder ++= "  ABCDEFGH  \n\r"
     stringBuilder.toString
   }
 }
 
 object Board{
+
   def apply():Board = {
-    var figuresPosition:mutable.HashMap[Position,Figure]=mutable.HashMap[Position,Figure]()
-    for (figure <- figures(White)++figures(Black))
-      for (position <- positions(figure))
-        figuresPosition+=((position,figure))
-    new Board(figuresPosition)
+    var piecesPlacement:mutable.HashMap[Position,Piece]=mutable.HashMap[Position,Piece]()
+    for (piece <- pieces(White)++pieces(Black))
+      for (position <- pieceStartPlacement(piece))
+        piecesPlacement+=((position,piece))
+    new Board(piecesPlacement)
   }
 
-  private def figures(color:Color):Set[Figure] =
-    Set[Figure](King(color),Queen(color),Rook(color),Bishop(color),KNight(color),Pawn(color))
+  def apply(prototype: Board):Board = new Board(prototype.piecesPlacement)
 
-  private def positions(figure: Figure):Set[Position] = {
+  private def pieces(color:Color):Set[Piece] =
+    Set[Piece](King(color),Queen(color),Rook(color),Bishop(color),KNight(color),Pawn(color))
+
+  private def pieceStartPlacement(figure: Piece):Set[Position] = {
     figure match{
-      case King(White) => Set[Position](Position('E',1))
-      case King(Black) => Set[Position](Position('E',8))
-      case Queen(White) => Set[Position](Position('D',1))
-      case Queen(Black) => Set[Position](Position('D',8))
-      case Rook(White) => Set[Position](Position('A',1),Position('H',1))
-      case Rook(Black) => Set[Position](Position('A',8),Position('H',8))
-      case Bishop(White) => Set[Position](Position('C',1),Position('F',1))
-      case Bishop(Black) => Set[Position](Position('C',8),Position('F',8))
-      case KNight(White) => Set[Position](Position('B',1),Position('G',1))
-      case KNight(Black) => Set[Position](Position('B',8),Position('G',8))
+      case King(White) => Set[Position]('E1)
+      case King(Black) => Set[Position]('E8)
+      case Queen(White) => Set[Position]('D1)
+      case Queen(Black) => Set[Position]('D8)
+      case Rook(White) => Set[Position]('A1,'H1)
+      case Rook(Black) => Set[Position]('A8,'H8)
+      case Bishop(White) => Set[Position]('C1,'F1)
+      case Bishop(Black) => Set[Position]('C8,'F8)
+      case KNight(White) => Set[Position]('B1,'G1)
+      case KNight(Black) => Set[Position]('B8,'G8)
       case Pawn(White) => var set=Set[Position](); for (a <- 1 to 8) set+=Position(a,2); set
       case Pawn(Black) => var set=Set[Position](); for (a <- 1 to 8) set+=Position(a,7); set
     }

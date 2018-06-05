@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4be44187-276f-4a7b-be1f-6f1bd84316e6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/Structures/Color.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/Structures/IllegalMoveException.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/Structures/Position.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/Structures/Square.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/Structures/Vect.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/gameLogic/Appl.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/gameLogic/Board.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/gameLogic/Figure.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/gameLogic/FigureMoves.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/gameLogic/GameMenager.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_scalatest_scalatest_2_9_3_1_9_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/gameLogic/ActionMenager.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/Structures/VectTest.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/gameLogic/BoardTest.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/gameLogic/PieceActionsTest.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/gameLogic/Figure.scala" afterPath="$PROJECT_DIR$/src/main/gameLogic/Piece.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/gameLogic/FigureMoves.scala" afterPath="$PROJECT_DIR$/src/main/gameLogic/PieceActions.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scala-Chess.iml" afterPath="$PROJECT_DIR$/Scala-Chess.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Structures/Position.scala" afterPath="$PROJECT_DIR$/src/main/Structures/Position.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Structures/Vect.scala" afterPath="$PROJECT_DIR$/src/main/Structures/Vect.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gameLogic/Appl.scala" afterPath="$PROJECT_DIR$/src/main/gameLogic/Appl.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gameLogic/Board.scala" afterPath="$PROJECT_DIR$/src/main/gameLogic/Board.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gameLogic/GameMenager.scala" afterPath="$PROJECT_DIR$/src/main/gameLogic/GameMenager.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +26,51 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file leaf-file-name="PieceActions.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/gameLogic/PieceActions.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vect.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Structures/Vect.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="10" />
+              <folding>
+                <element signature="e#723#773#0" expanded="false" />
+                <element signature="e#777#825#0" expanded="false" />
+                <element signature="e#829#910#0" expanded="false" />
+                <element signature="e#2143#2284#0" expanded="false" />
+                <element signature="e#2287#2415#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Appl.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Appl.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="ScalaTest Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -46,23 +93,34 @@
         <option value="$PROJECT_DIR$/src/main/gameLogic/Vect.scala" />
         <option value="$PROJECT_DIR$/src/main/Structures/Color.scala" />
         <option value="$PROJECT_DIR$/src/main/gameLogic/Figure.scala" />
-        <option value="$PROJECT_DIR$/src/main/Structures/Position.scala" />
         <option value="$PROJECT_DIR$/src/main/gameLogic/GameMenage.scala" />
-        <option value="$PROJECT_DIR$/src/main/gameLogic/Appl.scala" />
         <option value="$PROJECT_DIR$/src/main/Structures/IllegalMoveException.scala" />
-        <option value="$PROJECT_DIR$/src/main/gameLogic/GameMenager.scala" />
-        <option value="$PROJECT_DIR$/src/main/gameLogic/Board.scala" />
-        <option value="$PROJECT_DIR$/src/main/Structures/Vect.scala" />
-        <option value="$PROJECT_DIR$/src/main/gameLogic/FigureMoves.scala" />
         <option value="$PROJECT_DIR$/src/main/Structures/Square.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/FigureMoves.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/PieceMovements.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/ChessMoves.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/MoveMenager.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/Piece.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/GameMenager.scala" />
+        <option value="$PROJECT_DIR$/src/test/BoardTest.scala" />
+        <option value="$PROJECT_DIR$/src/test/UnitSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/gameLogic/BoardTest.scala" />
+        <option value="$PROJECT_DIR$/src/test/gameLogic/PieceActionsTest.scala" />
+        <option value="$PROJECT_DIR$/src/test/Structures/VectTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/ActionMenager.scala" />
+        <option value="$PROJECT_DIR$/src/main/Structures/Position.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/Board.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/Appl.scala" />
+        <option value="$PROJECT_DIR$/src/main/Structures/Vect.scala" />
+        <option value="$PROJECT_DIR$/src/main/gameLogic/PieceActions.scala" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="89" />
+    <option name="x" value="963" />
     <option name="y" value="-5" />
-    <option name="width" value="1831" />
-    <option name="height" value="1085" />
+    <option name="width" value="943" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -82,8 +140,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -116,22 +175,45 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="Structures" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Scala-Chess" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scala-Chess" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scala-Chess" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scala-Chess" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="gameLogic" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.5153374" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="ScalaTest" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="gameLogic" />
+      <recent name="Structures" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="org.scalatest.FunSuite" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -166,6 +248,78 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Scala-Chess" />
+      <envs />
+    </configuration>
+    <configuration name="BoardTest (1)" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Scala-Chess" />
+      <setting name="path" value="gameLogic.BoardTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+    </configuration>
+    <configuration name="BoardTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Scala-Chess" />
+      <setting name="path" value="BoardTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+    </configuration>
+    <configuration name="PieceActionsTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Scala-Chess" />
+      <setting name="path" value="gameLogic.PieceActionsTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+    </configuration>
+    <configuration name="VectTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Scala-Chess" />
+      <setting name="path" value="Structures.VectTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
       <envs />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -249,9 +403,20 @@
       <properties />
       <listeners />
     </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.Appl" />
+      <item index="1" class="java.lang.String" itemvalue="ScalaTest.BoardTest" />
+      <item index="2" class="java.lang.String" itemvalue="ScalaTest.PieceActionsTest" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.BoardTest (1)" />
+      <item index="4" class="java.lang.String" itemvalue="ScalaTest.VectTest" />
+    </list>
     <recent_temporary>
-      <list size="1">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.Appl" />
+        <item index="1" class="java.lang.String" itemvalue="ScalaTest.PieceActionsTest" />
+        <item index="2" class="java.lang.String" itemvalue="ScalaTest.VectTest" />
+        <item index="3" class="java.lang.String" itemvalue="ScalaTest.BoardTest (1)" />
+        <item index="4" class="java.lang.String" itemvalue="ScalaTest.BoardTest" />
       </list>
     </recent_temporary>
   </component>
@@ -273,24 +438,55 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="BoardTest_(1) - 2018.06.04 at 12h 00m 20s.xml">
+      <configuration name="BoardTest (1)" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="BoardTest_(1) - 2018.06.04 at 12h 04m 04s.xml">
+      <configuration name="BoardTest (1)" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="BoardTest_(1) - 2018.06.04 at 12h 04m 54s.xml">
+      <configuration name="BoardTest (1)" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="BoardTest_(1) - 2018.06.04 at 12h 08m 24s.xml">
+      <configuration name="BoardTest (1)" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="PieceActionsTest - 2018.06.04 at 12h 09m 43s.xml">
+      <configuration name="PieceActionsTest" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="PieceActionsTest - 2018.06.04 at 12h 19m 48s.xml">
+      <configuration name="PieceActionsTest" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="VectTest - 2018.06.04 at 12h 14m 26s.xml">
+      <configuration name="VectTest" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="VectTest - 2018.06.04 at 12h 15m 15s.xml">
+      <configuration name="VectTest" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="VectTest - 2018.06.04 at 12h 16m 00s.xml">
+      <configuration name="VectTest" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="VectTest - 2018.06.04 at 12h 16m 46s.xml">
+      <configuration name="VectTest" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="89" y="-5" width="1831" height="1085" extended-state="6" />
+    <frame x="963" y="-5" width="1833" height="1086" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25165564" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22385529" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23911814" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -301,19 +497,154 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Figure.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/PieceActions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Structures/Vect.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="10" />
+          <folding>
+            <element signature="e#723#773#0" expanded="false" />
+            <element signature="e#777#825#0" expanded="false" />
+            <element signature="e#829#910#0" expanded="false" />
+            <element signature="e#2143#2284#0" expanded="false" />
+            <element signature="e#2287#2415#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Appl.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Board.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#20#39#0" expanded="true" />
+            <element signature="e#744#894#0" expanded="false" />
+            <element signature="e#1082#1302#0" expanded="false" />
+            <element signature="e#1306#1382#0" expanded="false" />
+            <element signature="e#1386#1871#0" expanded="false" />
+            <element signature="e#1892#2181#0" expanded="false" />
+            <element signature="e#2402#3164#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/PieceActions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="3" lean-forward="false" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/ActionMenager.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+          <folding>
+            <element signature="e#156#288#0" expanded="false" />
+            <element signature="e#292#397#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Appl.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Board.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#20#39#0" expanded="true" />
+            <element signature="e#744#894#0" expanded="false" />
+            <element signature="e#1082#1302#0" expanded="false" />
+            <element signature="e#1306#1382#0" expanded="false" />
+            <element signature="e#1386#1871#0" expanded="false" />
+            <element signature="e#1892#2181#0" expanded="false" />
+            <element signature="e#2402#3164#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/PieceActions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="3" lean-forward="false" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/ActionMenager.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+          <folding>
+            <element signature="e#156#288#0" expanded="false" />
+            <element signature="e#292#397#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Appl.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Board.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#20#39#0" expanded="true" />
+            <element signature="e#744#894#0" expanded="false" />
+            <element signature="e#1082#1302#0" expanded="false" />
+            <element signature="e#1306#1382#0" expanded="false" />
+            <element signature="e#1386#1871#0" expanded="false" />
+            <element signature="e#1892#2181#0" expanded="false" />
+            <element signature="e#2402#3164#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Piece.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
@@ -326,8 +657,11 @@
         <state relative-caret-position="286">
           <caret line="13" column="71" lean-forward="false" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
           <folding>
-            <element signature="e#1267#1408#0" expanded="false" />
-            <element signature="e#1411#1539#0" expanded="false" />
+            <element signature="e#723#773#0" expanded="false" />
+            <element signature="e#777#825#0" expanded="false" />
+            <element signature="e#829#910#0" expanded="false" />
+            <element signature="e#2143#2284#0" expanded="false" />
+            <element signature="e#2287#2415#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -340,7 +674,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/FigureMoves.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/PieceActions.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
@@ -364,16 +698,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Structures/Color.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Structures/Position.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+        <state relative-caret-position="220">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -386,22 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Figure.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/FigureMoves.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Structures/Square.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -410,42 +720,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Board.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Piece.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="82" column="68" lean-forward="false" selection-start-line="82" selection-start-column="68" selection-end-line="82" selection-end-column="68" />
+        <state relative-caret-position="191">
+          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/BoardTest.scala" />
+    <entry file="file://$PROJECT_DIR$/src/test/UnitSpec.scala" />
+    <entry file="file://$PROJECT_DIR$/src/test/Structures/VectTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/gameLogic/PieceActionsTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
           <folding>
-            <element signature="e#24#43#0" expanded="true" />
+            <element signature="e#19#38#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/GameMenager.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/gameLogic/BoardTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="30" />
+        <state relative-caret-position="283">
+          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding>
             <element signature="e#19#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Structures/Position.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Board.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-971">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="e#20#39#0" expanded="true" />
+            <element signature="e#744#894#0" expanded="false" />
+            <element signature="e#1082#1302#0" expanded="false" />
+            <element signature="e#1306#1382#0" expanded="false" />
+            <element signature="e#1892#2181#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/GameMenager.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/ActionMenager.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="42" column="111" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="111" />
+          <folding>
+            <element signature="e#156#288#0" expanded="false" />
+            <element signature="e#292#397#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/gameLogic/Appl.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        <state relative-caret-position="242">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Structures/Vect.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        <state relative-caret-position="330">
+          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="10" />
           <folding>
-            <element signature="e#1267#1408#0" expanded="false" />
-            <element signature="e#1411#1539#0" expanded="false" />
+            <element signature="e#723#773#0" expanded="false" />
+            <element signature="e#777#825#0" expanded="false" />
+            <element signature="e#829#910#0" expanded="false" />
+            <element signature="e#2143#2284#0" expanded="false" />
+            <element signature="e#2287#2415#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/gameLogic/PieceActions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -507,7 +886,6 @@
             <option name="proportions">
               <list>
                 <option value="0.5153374" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -527,6 +905,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>org.scalatest:scalatest_2.9.3:1.9.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

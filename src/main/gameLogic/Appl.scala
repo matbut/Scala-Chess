@@ -4,9 +4,10 @@ import Structures._
 
 
 object Appl extends App {
-  val gameMenager = GameMenager
-  println(gameMenager.board.toString)
-  gameMenager.update(Position('B',1),Position('C',3))
-  println(gameMenager.board.toString)
-  gameMenager.update(Position('B',1),Position('C',3))
+
+  println(GameMenager.toString)
+  GameMenager.action('B1,'C3)
+  println(GameMenager.toString)
+
+  println(PieceActions.rookMoves(100))
 }
