@@ -1,7 +1,7 @@
 package gameLogic
 
 
-import Structures._
+import structures._
 
 import scala.collection.mutable
 

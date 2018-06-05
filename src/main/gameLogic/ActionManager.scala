@@ -1,15 +1,19 @@
 package gameLogic
 
-import Structures._
+import structures._
 
-object ActionMenager {
+object ActionManager {
   /*
   action
     -> move
     -> capture
   */
 
-  val board=Board()
+  var board=Board()
+
+  def resetBoard(): Unit = {
+    board = Board()
+  }
   //var oldBoard:Board
 
   def action(from: Position,to:Position){

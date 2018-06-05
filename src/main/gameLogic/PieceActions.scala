@@ -1,11 +1,12 @@
 package gameLogic
 
-import Structures._
+import structures._
 
 object PieceActions {
 
   def isMove(figure: Piece, from:Position, to:Position):Boolean = {
-    val move = Vect(from,to)
+    move(figure,from).contains(to)
+    /*val move = Vect(from,to)
     figure match{
       case _:King => (move rot90 Vect(0,1)) || (move rot90 Vect(1,1))
       case _:Queen => move.isVerticall || move.isHorizontall || move.isDiagonall
@@ -14,18 +15,18 @@ object PieceActions {
       case _:KNight => (move rot90 Vect(2,1)) || (move rot90 Vect(1,2))
       case Pawn(White) => move =~= Vect(0,1) || (move =~= Vect(0,2) && move.from.y==2)
       case Pawn(Black) => move =~= Vect(0,-1) || (move =~= Vect(0,-2) && move.from.y==7)
-    }
+    }*/
   }
 
   def move(figure: Piece,from:Position):Stream[Position]={
     figure match{
-      case _:King =>
+      case _:King => kingMoves(from)
       case _:Queen => queenMoved(from)
       case _:Rook => rookMoves(from)
       case _:Bishop => bishopMoves(from)
-      case _:KNight => (move rot90 Vect(2,1)) || (move rot90 Vect(1,2))
-      case Pawn(White) => move =~= Vect(0,1) || (move =~= Vect(0,2) && move.from.y==2)
-      case Pawn(Black) => move =~= Vect(0,-1) || (move =~= Vect(0,-2) && move.from.y==7)
+      case _:KNight => kNightMoves(from)
+      case Pawn(White) => WhitePawnMoves(from)
+      case Pawn(Black) => BlackPawnMoves(from)
     }
   }
 
@@ -39,6 +40,18 @@ object PieceActions {
     set.map({case (vect:Vect) => from->vect}).toStream
   }
 
+  def WhitePawnMoves(from: Position): Stream[Position] = {
+    var set:Set[Vect] = Set(Vect(0,1))
+    if (from.y==2) set += Vect(0,2)
+    set.map({case (vect:Vect) => from->vect}).toStream
+  }
+
+  def BlackPawnMoves(from: Position): Stream[Position] = {
+    var set:Set[Vect] = Set(Vect(0,-1))
+    if (from.y==7) set += Vect(0,-2)
+    set.map({case (vect:Vect) => from->vect}).toStream
+  }
+
   def rookMoves(from: Position): Stream[Position] = Vect(0,1).line(from) ++ Vect(1,0).line(from)
 
   def bishopMoves(from: Position): Stream[Position] = Vect(1,1).line(from) ++ Vect(-1,1).line(from)
@@ -48,9 +61,10 @@ object PieceActions {
 
 
   def isCapture(figure: Piece, from:Position, to:Position):Boolean = {
-    val move = Vect(from, to)
+    val move = Vect(from, to).free
     figure match {
-      case _: Pawn => move == Vect(1, 1) || move == Vect(-1, 1)
+      case Pawn(White) => move == Vect(1, 1) || move == Vect(-1, 1)
+      case Pawn(Black) => move == Vect(1, -1) || move == Vect(-1, -1)
       case _ => isMove(figure, from, to)
     }
   }

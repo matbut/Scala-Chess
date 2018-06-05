@@ -1,8 +1,8 @@
-package Structures
+package structures
 
 class Position private(val x:Int,val y:Int) {
 
-
+  def inside(x1:Int,y1:Int,x2:Int,y2:Int): Boolean = (x >= x1) && (y >= y1) && (x <= x2) && (y <= y2)
 
   //Basic operators
   def unary_- = new Position(-x, -y)

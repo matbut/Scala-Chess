@@ -1,13 +1,13 @@
 package gameLogic
 
-import Structures._
+import structures._
 
 
 object Appl extends App {
 
-  println(GameMenager.toString)
-  GameMenager.action('B1,'C3)
-  println(GameMenager.toString)
+  //println(GameMenager.toString)
+  GameManager.action('B1,'C3)
+  //println(GameMenager.toString)
 
-  println(PieceActions.rookMoves(100))
+  //println(PieceActions.rookMoves(100))
 }

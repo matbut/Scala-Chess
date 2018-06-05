@@ -1,6 +1,6 @@
 package gameLogic
 
-import Structures._
+import structures._
 import org.scalatest.FunSuite
 
 class BoardTest extends FunSuite {

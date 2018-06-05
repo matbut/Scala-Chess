@@ -1,4 +1,4 @@
-package Structures
+package structures
 
 class Vect private(val from:Position, val to:Position) {
 
@@ -11,7 +11,7 @@ class Vect private(val from:Position, val to:Position) {
   //def det(other: Vect):Int = this.free.to.x * other.free.to.y - this.free.to.y * other.free.to.x
 
   def halfLine(position: Position):Stream[Position]=
-    Stream.iterate(position)({case (position:Position) => position->this})
+    Stream.iterate(position)({ case (position: Position) => position -> this }).takeWhile((position:Position) => position.inside(1,1,8,8))
 
   def line(position: Position):Stream[Position]=(-this).halfLine(position)++halfLine(position)
 
