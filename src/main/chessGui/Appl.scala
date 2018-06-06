@@ -15,7 +15,7 @@ class GuiApp extends SimpleSwingApplication{
     title = "Chess"
     menuBar = new MenuBar{
       contents += new Button(Action("New Game") {
-        GameManager.resetGame(); panel.repaint//; userNames()
+        GameManager.resetGame(); panel.repaint// ; userNames()
       })
     }
     contents = panel

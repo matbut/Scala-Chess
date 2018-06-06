@@ -35,7 +35,6 @@
         </ANNOTATIONS>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
         </CLASSES>
         <JAVADOC>
           <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
@@ -44,7 +43,6 @@
           <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
         </NATIVE>
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
           <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
         </SOURCES>
         <jarDirectory url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" recursive="false" />
@@ -55,16 +53,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
           <root url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" />
         </SOURCES>
         <jarDirectory url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" recursive="false" />
         <jarDirectory url="jar://$MODULE_DIR$/scalactic_2.12-3.0.5-sources.jar!/" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="org.scala-lang:scala-swing:2.10.7" level="project" />
   </component>
 </module>
