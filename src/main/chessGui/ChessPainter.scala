@@ -5,23 +5,23 @@ import structures.{Position, White}
 import scala.swing.{Font, Graphics2D, Rectangle}
 import gameLogic.{ActionManager, GameManager}
 
-class ChessPainter(panel:GamePanel) {
-  val squareSize: Int = panel.squareSize
-  val selectedPosition: Option[Position] = panel.selectedPosition
+class ChessPainter(val squareSize: Int,var gameManager: GameManager) {
 
   val backgroundLight = new Color(255, 218, 179)
   val backgroundDark = new Color(198, 140, 83)
   val pieceWhite: Color = Color.WHITE
   val pieceBlack = new Color(128, 66, 0)
   val selected = new Color(153, 204, 255)
-  val hovered = new Color(111, 220, 111)
+  val moveColor = new Color(111, 220, 111)
+  val captureColor = new Color(220,111,111)
 
-  def paintComponent(g: Graphics2D): Unit ={
+  def paintComponent(g: Graphics2D,selectedPosition:Option[Position],hoveredPosition:Option[Position]): Unit ={
     drawSquares()
     drawPieces()
     drawSelectedSquare()
     drawHoveredSquare()
-    drawCoordinates
+    drawCoordinates()
+
 
     def drawSquares(): Unit ={
       val oldPaint = g.getPaint
@@ -36,7 +36,8 @@ class ChessPainter(panel:GamePanel) {
       val oldPaint = g.getPaint
       g.setFont(new Font(g.getFont.getName, 0, 3*squareSize/5))
       val squareOffset = squareSize/2
-      for((position,piece) <- GameManager.actionManager.board.piecesPlacement.iterator){
+      //TODO
+      for((position,piece) <- gameManager.actionManager.board.piecesPlacement.iterator){
         g.setPaint(if(piece.color == White) pieceWhite else pieceBlack)
         val rect = g.getFont.getStringBounds(piece.uniSym.toString,g.getFontRenderContext)
         val yOffset = (rect.getY+rect.getHeight/2).toInt
@@ -49,7 +50,7 @@ class ChessPainter(panel:GamePanel) {
       val oldStroke = g.getStroke
       val oldPaint = g.getPaint
       g.setStroke(new BasicStroke(3f))
-      panel.selectedPosition match {
+      selectedPosition match {
         case None =>
         case Some(position) =>
           g.setPaint(selected)
@@ -63,15 +64,17 @@ class ChessPainter(panel:GamePanel) {
       val oldStroke = g.getStroke
       val oldPaint = g.getPaint
       g.setStroke(new BasicStroke(3f))
-      panel.hoveredPosition match {
+      hoveredPosition match {
         case None =>
         case Some(hoveredPos) =>
-          panel.selectedPosition match {
+          selectedPosition match {
             case None =>
             case Some(selectedPos) =>
-              if (GameManager.isAction(selectedPos, hoveredPos)) {
-                g.setPaint(hovered)
-                println("hovered")
+              if (gameManager.isAction(selectedPos, hoveredPos)) {
+                if(gameManager.isCapture(selectedPos,hoveredPos))
+                  g.setPaint(captureColor)
+                else //isMove
+                  g.setPaint(moveColor)
                 val offset = squareSize/2
                 g.draw(new Rectangle((hoveredPos.x-1)*squareSize+offset, (hoveredPos.y-1)*squareSize+offset,squareSize,squareSize))
               }

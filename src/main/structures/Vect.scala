@@ -7,32 +7,26 @@ class Vect private(val from:Position, val to:Position) {
   def +(other: Vect) = Vect(from + other.from, other.to)
   def -(other: Vect): Vect = this + (-other)
   def *(scalar: Int):Vect = Vect(from, to + this.free.to * scalar)
+  def free = Vect(to - from)
   //def *(other:Vect):Int = this.free.to.x * this.free.to.y + other.free.to.x * other.free.to.y
   //def det(other: Vect):Int = this.free.to.x * other.free.to.y - this.free.to.y * other.free.to.x
 
-  def halfLine(position: Position):Stream[Position]=
-    Stream.iterate(position)({ case (position: Position) => position -> this }).takeWhile((position:Position) => position.inside('A1,'H8))
+  //properties
+  def isHorizontall: Boolean = from.y==to.y
+  def isVerticall: Boolean = from.x==to.x
+  def isDiagonall: Boolean = free.to.x==free.to.y || -free.to.x==free.to.y
 
-  def line(position: Position):Stream[Position]=(-this).halfLine(position)++halfLine(position)
+  //lines
+  def line(position: Position):Set[Position]=(-this).halfLine(position)++halfLine(position)
+  def halfLine(position: Position):Set[Position]=
+    Stream.iterate(position)({ case (position: Position) => position -> this }).takeWhile((position:Position) => position.inside('A1,'H8)).toSet
 
-  def isHorizontall: Boolean ={
-    from.y==to.y
-  }
-
-  def isVerticall: Boolean ={
-    from.x==to.x
-  }
-
-  def isDiagonall: Boolean ={
-    free.to.x==free.to.y || -free.to.x==free.to.y
-  }
-
+  //rotations
   def rot180(other: Vect):Boolean=this.free==other.free || -this.free==other.free //czy rownolegle i rownej dlugosci
   def rot180plus90(other: Vect):Boolean = rot180(Vect(-other.free.to.y,other.free.to.x)) //czy prostopadle i rownej dlugosci
   def rot90(other: Vect):Boolean = rot180(other) || rot180plus90(other) //czy rown. lub prost. i rownej dlugosci
 
-  def free = Vect(to - from)
-
+  //other
   def contains:Set[Position] = {
     this match{
       case _ if isHorizontall => rangeBetween(from.x,to.x).map({case (x:Int) => Position(x,from.y)}).toSet
@@ -42,7 +36,6 @@ class Vect private(val from:Position, val to:Position) {
     }
   }
 
-
   def rangeBetween(from:Int, to:Int): Range ={
     if(from<to)
       from+1 until to
@@ -50,16 +43,8 @@ class Vect private(val from:Position, val to:Position) {
       (to+1 until from).reverse
   }
 
-  //def \\(other: Vect):Boolean = det(other)==0
-
-  //def L(other: Vect):Boolean = this * other==0
-
-  //def H(other: Vect):Boolean = (this \\ other) || (this \\ other)
-
-
   override def toString:String = "[" ++ from.toString ++ "," ++ to.toString() ++ "]"
 
-  def =~=(other:Vect):Boolean = this.free==other.free
   def canEqual(other: Any): Boolean = other.isInstanceOf[Vect]
   override def equals(other: Any): Boolean = other match {
     case that: Vect =>

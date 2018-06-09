@@ -1,6 +1,7 @@
 package gameLogic
 
 
+import piece.{King, Piece, PieceStartPlacement}
 import structures._
 
 import scala.collection.mutable
@@ -12,8 +13,7 @@ class Board private(var piecesPlacement: mutable.HashMap[Position, Piece]){
     .filter({case (position:Position,piece:Piece) => piece.isInstanceOf[King]})
     .foreach({case (position:Position,piece:Piece) => kingPosition+=(piece.color -> position)})
 
-  //TODO is Position on board?
-  //Basic info
+  //Basic board info
 
   def isEmpty(position: Position):Boolean = !isOccupied(position)
 
@@ -24,22 +24,23 @@ class Board private(var piecesPlacement: mutable.HashMap[Position, Piece]){
   def color(position: Position):Color = piece(position).color
 
   //More advanced info
+  def pieces:Set[(Position,Piece)] = {
+    piecesPlacement.toSet
+  }
 
   def pieces(color: Color):Set[(Position,Piece)] = {
-    piecesPlacement.filter({case((position:Position,piece:Piece)) => piece.color==color}).toSet
+    pieces.filter({case((position:Position,piece:Piece)) => piece.color==color}).toSet
   }
 
   def isClear(from:Position,to:Position):Boolean = {
-    println(Vect(from,to).contains)
-    val bool = Vect(from,to).contains.forall((position:Position) => !piecesPlacement.contains(position))
-    if(!bool)
-      println("not clear")
-    bool
+    Vect(from,to).contains.forall((position:Position) => !piecesPlacement.contains(position))
   }
 
-  //Operations on board
+  //Board operations
 
   def replace(oldPos: Position, newPos: Position){
+    if(isOccupied(newPos))
+      remove(newPos)
     val piece = piecesPlacement.remove(oldPos).get
     piece.notMoved=false
     piecesPlacement += ((newPos,piece))
@@ -69,37 +70,22 @@ class Board private(var piecesPlacement: mutable.HashMap[Position, Piece]){
     stringBuilder ++= "  ABCDEFGH  \n\r"
     stringBuilder.toString
   }
+
+  def copy:Board=new Board(piecesPlacement.clone)
 }
 
 object Board{
+  def apply(placement: Map[Piece,Set[Position]]=PieceStartPlacement.basic):Board = {
 
-  def apply():Board = {
-    var piecesPlacement:mutable.HashMap[Position,Piece]=mutable.HashMap[Position,Piece]()
-    for (piece <- pieces(White)++pieces(Black))
-      for (position <- pieceStartPlacement(piece))
-        piecesPlacement+=((position,piece))
+    var piecesPlacement:mutable.HashMap[Position,Piece]=new mutable.HashMap[Position,Piece]()
+
+    placement.flatMap({
+      case (piece:Piece,set:Set[Position]) => set.map({
+        case (position:Position) => position -> piece})})
+          .foreach({case (position:Position,piece:Piece) => piecesPlacement+=((position,piece))})
+
     new Board(piecesPlacement)
   }
 
-  def apply(prototype: Board):Board = new Board(prototype.piecesPlacement)
-
-  private def pieces(color:Color):Set[Piece] =
-    Set[Piece](King(color),Queen(color),Rook(color),Bishop(color),KNight(color),Pawn(color))
-
-  private def pieceStartPlacement(figure: Piece):Set[Position] = {
-    figure match{
-      case King(White) => Set[Position]('E1)
-      case King(Black) => Set[Position]('E8)
-      case Queen(White) => Set[Position]('D1)
-      case Queen(Black) => Set[Position]('D8)
-      case Rook(White) => Set[Position]('A1,'H1)
-      case Rook(Black) => Set[Position]('A8,'H8)
-      case Bishop(White) => Set[Position]('C1,'F1)
-      case Bishop(Black) => Set[Position]('C8,'F8)
-      case KNight(White) => Set[Position]('B1,'G1)
-      case KNight(Black) => Set[Position]('B8,'G8)
-      case Pawn(White) => var set=Set[Position](); for (a <- 1 to 8) set+=Position(a,2); set
-      case Pawn(Black) => var set=Set[Position](); for (a <- 1 to 8) set+=Position(a,7); set
-    }
-  }
+  def apply(prototype: Board):Board = prototype.copy
 }

@@ -1,5 +1,7 @@
 package structures
 
+
+//TODO name it squere?
 class Position private(val x:Int,val y:Int) {
 
   //Basic operators
@@ -13,9 +15,13 @@ class Position private(val x:Int,val y:Int) {
   def >= (other: Position): Boolean = x>=other.x && y>=other.y
   def <= (other: Position): Boolean = other >= this
   def inside(corner1: Position,corner2:Position): Boolean = this >= corner1 && this <= corner2
+  def inside:Boolean = inside('A1,'H8)
 
   override def toString:String = "(" ++ x.toString ++ "," ++ y.toString() ++ ")"
 
+  def isDark:Boolean = (x+y)%2==0
+  def isLight:Boolean = !isDark
+  def isQueening:Boolean = y==1 || y==8
 
   def canEqual(other: Any): Boolean = other.isInstanceOf[Position]
 
