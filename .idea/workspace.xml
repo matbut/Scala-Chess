@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4be44187-276f-4a7b-be1f-6f1bd84316e6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/piece/PieceActions.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/piece/PieceStartPlacement.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/structures/Weight.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/gameLogic/GameManagerTest.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/piece/PieceActionsTest.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/gameLogic/Appl.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/gameLogic/PieceActions.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/structures/IllegalMoveException.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/structures/Square.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/gameLogic/PieceActionsTest.scala" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/gameLogic/Piece.scala" afterPath="$PROJECT_DIR$/src/main/piece/Piece.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/scalactic_2.12-3.0.5-sources.jar" afterPath="$PROJECT_DIR$/sources/scalactic_2.12-3.0.5-sources.jar" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/scalactic_2.12-3.0.5.jar" afterPath="$PROJECT_DIR$/sources/scalactic_2.12-3.0.5.jar" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/scalatest_2.12-3.0.5-sources.jar" afterPath="$PROJECT_DIR$/sources/scalatest_2.12-3.0.5-sources.jar" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/scalatest_2.12-3.0.5.jar" afterPath="$PROJECT_DIR$/sources/scalatest_2.12-3.0.5.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/chessGui/Appl.scala" afterPath="$PROJECT_DIR$/src/main/chessGui/Appl.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/chessGui/ChessPainter.scala" afterPath="$PROJECT_DIR$/src/main/chessGui/ChessPainter.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/chessGui/GamePanel.scala" afterPath="$PROJECT_DIR$/src/main/chessGui/GamePanel.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gameLogic/ActionManager.scala" afterPath="$PROJECT_DIR$/src/main/gameLogic/ActionManager.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gameLogic/Board.scala" afterPath="$PROJECT_DIR$/src/main/gameLogic/Board.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gameLogic/GameManager.scala" afterPath="$PROJECT_DIR$/src/main/gameLogic/GameManager.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/structures/Position.scala" afterPath="$PROJECT_DIR$/src/main/structures/Position.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/structures/Vect.scala" afterPath="$PROJECT_DIR$/src/main/structures/Vect.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
