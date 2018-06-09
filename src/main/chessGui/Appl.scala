@@ -1,25 +1,19 @@
 package chessGui
 
-import gameLogic.GameManager
 import structures.{Black, Color, White}
 
 import scala.swing.Dialog.{Message, showInput}
 import scala.swing.event.WindowClosing
 import scala.swing.{Action, Button, MainFrame, MenuBar, SimpleSwingApplication, Swing}
 
-/*TODO
-GUI
-- okno zakonczenia gry
+/*
+TODO
 - promocja piona
-
-Game Manager
-- zakocznie gry
-
-Action Manager
-- ruch na ukos nie działa
 - bicie w przelocie
-- promocja
 - roszada
+- inne możliwości remisu
+- punktacja gry
+- pomiar czasu
 */
 
 object Appl extends GuiApp
