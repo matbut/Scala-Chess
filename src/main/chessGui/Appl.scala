@@ -7,6 +7,21 @@ import scala.swing.Dialog.{Message, showInput}
 import scala.swing.event.WindowClosing
 import scala.swing.{Action, Button, MainFrame, MenuBar, SimpleSwingApplication, Swing}
 
+/*TODO
+GUI
+- okno zakonczenia gry
+- promocja piona
+
+Game Manager
+- zakocznie gry
+
+Action Manager
+- ruch na ukos nie działa
+- bicie w przelocie
+- promocja
+- roszada
+*/
+
 object Appl extends GuiApp
 class GuiApp extends SimpleSwingApplication{
   def top: MainFrame = new MainFrame {

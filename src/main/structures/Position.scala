@@ -2,8 +2,6 @@ package structures
 
 class Position private(val x:Int,val y:Int) {
 
-  def inside(x1:Int,y1:Int,x2:Int,y2:Int): Boolean = (x >= x1) && (y >= y1) && (x <= x2) && (y <= y2)
-
   //Basic operators
   def unary_- = new Position(-x, -y)
   def + (other: Position) = new Position(x+other.x,y+other.y)
@@ -11,6 +9,10 @@ class Position private(val x:Int,val y:Int) {
   def * (scalar: Int) = new Position(x*scalar,y*scalar)
 
   def -> (vector: Vect) : Position = this+vector.free.to //tralnslation
+
+  def >= (other: Position): Boolean = x>=other.x && y>=other.y
+  def <= (other: Position): Boolean = other >= this
+  def inside(corner1: Position,corner2:Position): Boolean = this >= corner1 && this <= corner2
 
   override def toString:String = "(" ++ x.toString ++ "," ++ y.toString() ++ ")"
 

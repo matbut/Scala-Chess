@@ -36,7 +36,7 @@ class ChessPainter(panel:GamePanel) {
       val oldPaint = g.getPaint
       g.setFont(new Font(g.getFont.getName, 0, 3*squareSize/5))
       val squareOffset = squareSize/2
-      for((position,piece) <- ActionManager.board.piecesPlacement.iterator){
+      for((position,piece) <- GameManager.actionManager.board.piecesPlacement.iterator){
         g.setPaint(if(piece.color == White) pieceWhite else pieceBlack)
         val rect = g.getFont.getStringBounds(piece.uniSym.toString,g.getFontRenderContext)
         val yOffset = (rect.getY+rect.getHeight/2).toInt

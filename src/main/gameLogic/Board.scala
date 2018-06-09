@@ -30,13 +30,18 @@ class Board private(var piecesPlacement: mutable.HashMap[Position, Piece]){
   }
 
   def isClear(from:Position,to:Position):Boolean = {
-    Vect(from,to).contains.forall({case (position:Position) => !piecesPlacement.contains(position)})
+    println(Vect(from,to).contains)
+    val bool = Vect(from,to).contains.forall((position:Position) => !piecesPlacement.contains(position))
+    if(!bool)
+      println("not clear")
+    bool
   }
 
   //Operations on board
 
   def replace(oldPos: Position, newPos: Position){
     val piece = piecesPlacement.remove(oldPos).get
+    piece.notMoved=false
     piecesPlacement += ((newPos,piece))
     if(piece.isInstanceOf[King])
       kingPosition+=(piece.color -> newPos)

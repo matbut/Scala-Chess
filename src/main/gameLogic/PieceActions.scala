@@ -5,7 +5,7 @@ import structures._
 object PieceActions {
 
   def isMove(figure: Piece, from:Position, to:Position):Boolean = {
-    move(figure,from).contains(to)
+    validMoves(figure,from).contains(to)
     /*val move = Vect(from,to)
     figure match{
       case _:King => (move rot90 Vect(0,1)) || (move rot90 Vect(1,1))
@@ -18,7 +18,7 @@ object PieceActions {
     }*/
   }
 
-  def move(figure: Piece,from:Position):Stream[Position]={
+  def validMoves(figure: Piece, from:Position):Stream[Position]={
     figure match{
       case _:King => kingMoves(from)
       case _:Queen => queenMoved(from)
@@ -30,33 +30,33 @@ object PieceActions {
     }
   }
 
-  def kingMoves(from: Position): Stream[Position] = {
+  private def kingMoves(from: Position): Stream[Position] = {
     val set:Set[Vect]=Set(Vect(0,1),Vect(1,1),Vect(1,0),Vect(-1,1), Vect(-1,0),Vect(0,-1),Vect(-1,-1),Vect(-1,1))
-    set.map({case (vect:Vect) => from->vect}).toStream
+    set.map({case (vect:Vect) => from->vect}).toStream.filter((position:Position) => position.inside('A1,'H8))
   }
 
-  def kNightMoves(from: Position): Stream[Position] = {
+  private def kNightMoves(from: Position): Stream[Position] = {
     val set:Set[Vect]=Set(Vect(1,2),Vect(2,1),Vect(-1,2),Vect(-2,1), Vect(-1,-2),Vect(-2,-1),Vect(1,-2),Vect(2,-1))
-    set.map({case (vect:Vect) => from->vect}).toStream
+    set.map({case (vect:Vect) => from->vect}).toStream.filter((position:Position) => position.inside('A1,'H8))
   }
 
-  def WhitePawnMoves(from: Position): Stream[Position] = {
+  private def WhitePawnMoves(from: Position): Stream[Position] = {
     var set:Set[Vect] = Set(Vect(0,1))
     if (from.y==2) set += Vect(0,2)
     set.map({case (vect:Vect) => from->vect}).toStream
   }
 
-  def BlackPawnMoves(from: Position): Stream[Position] = {
+  private def BlackPawnMoves(from: Position): Stream[Position] = {
     var set:Set[Vect] = Set(Vect(0,-1))
     if (from.y==7) set += Vect(0,-2)
     set.map({case (vect:Vect) => from->vect}).toStream
   }
 
-  def rookMoves(from: Position): Stream[Position] = Vect(0,1).line(from) ++ Vect(1,0).line(from)
+  private def rookMoves(from: Position): Stream[Position] = Vect(0,1).line(from) ++ Vect(1,0).line(from)
 
-  def bishopMoves(from: Position): Stream[Position] = Vect(1,1).line(from) ++ Vect(-1,1).line(from)
+  private def bishopMoves(from: Position): Stream[Position] = Vect(1,1).line(from) ++ Vect(-1,1).line(from)
 
-  def queenMoved(from: Position): Stream[Position] = rookMoves(from) ++ bishopMoves(from)
+  private def queenMoved(from: Position): Stream[Position] = rookMoves(from) ++ bishopMoves(from)
 
 
 

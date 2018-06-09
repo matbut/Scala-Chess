@@ -11,7 +11,7 @@ class Vect private(val from:Position, val to:Position) {
   //def det(other: Vect):Int = this.free.to.x * other.free.to.y - this.free.to.y * other.free.to.x
 
   def halfLine(position: Position):Stream[Position]=
-    Stream.iterate(position)({ case (position: Position) => position -> this }).takeWhile((position:Position) => position.inside(1,1,8,8))
+    Stream.iterate(position)({ case (position: Position) => position -> this }).takeWhile((position:Position) => position.inside('A1,'H8))
 
   def line(position: Position):Stream[Position]=(-this).halfLine(position)++halfLine(position)
 
@@ -34,15 +34,20 @@ class Vect private(val from:Position, val to:Position) {
   def free = Vect(to - from)
 
   def contains:Set[Position] = {
-    var set=Set[Position]()
     this match{
-      case _ if isHorizontall => for(i <- from.x+1 until to.x) set+=Position(i,from.y);
-      case _ if isVerticall => for(i <- from.y+1 until to.y) set+=Position(from.x,i);
-      case _ if isDiagonall => for(i <- from.x+1 until to.x;
-                                   j <- from.y+1 until to.y) set+=Position(i,j);
-      case _ =>
+      case _ if isHorizontall => rangeBetween(from.x,to.x).map({case (x:Int) => Position(x,from.y)}).toSet
+      case _ if isVerticall => rangeBetween(from.y,to.y).map({case (y:Int) => Position(from.x,y)}).toSet
+      case _ if isDiagonall => (rangeBetween(from.x,to.x) zip rangeBetween(from.y,to.y)).map({case (x:Int,y:Int) => Position(x,y)}).toSet
+      case _ => Set()
     }
-    set
+  }
+
+
+  def rangeBetween(from:Int, to:Int): Range ={
+    if(from<to)
+      from+1 until to
+    else
+      (to+1 until from).reverse
   }
 
   //def \\(other: Vect):Boolean = det(other)==0
