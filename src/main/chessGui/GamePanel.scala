@@ -1,13 +1,13 @@
 package chessGui
 
-import java.awt.{Color, Point}
+import java.awt.Point
 
 import structures.Position
 import gameLogic.GameManager
 
 import scala.swing.Dialog.Message
-import scala.swing.event.{MouseClicked, MouseMoved, MousePressed}
-import scala.swing.{Action, Button, Dialog, Dimension, Graphics2D, MenuBar, Panel, TextField}
+import scala.swing.event.{MouseMoved, MousePressed}
+import scala.swing.{Dialog, Dimension, Graphics2D, Panel}
 
 class GamePanel extends Panel {
   preferredSize = new Dimension(900,900)
