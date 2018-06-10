@@ -4,7 +4,7 @@ import structures.{Black, Color, White}
 
 import scala.swing.Dialog.{Message, showInput}
 import scala.swing.event.WindowClosing
-import scala.swing.{Action, Button, MainFrame, MenuBar, SimpleSwingApplication, Swing}
+import scala.swing.{Action, Button, MainFrame, MenuBar, SimpleSwingApplication, Swing, TextField}
 
 /*
 TODO

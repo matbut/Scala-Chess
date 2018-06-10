@@ -67,6 +67,11 @@ class ActionManager private(var board:Board){
     actions(color).isEmpty
   }
 
+  def checkedKingPosition(color:Color):Option[Position] = {
+    if(isCheck(color)) Some(board.kingPosition(color))
+    else None
+  }
+
   /*
   Impossibility of checkmate
   - king versus king
@@ -76,7 +81,7 @@ class ActionManager private(var board:Board){
 */
   def isImpossibilityOfCheckmate:Boolean={
     Set[Set[Piece]](
-      Set(),
+      Set(King(White),King(Black)),
       Set(King(White),King(Black),Bishop(White)),
       Set(King(White),King(Black),Bishop(Black)),
       Set(King(White),King(Black),KNight(White)),

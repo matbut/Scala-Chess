@@ -16,6 +16,8 @@ class GameManager private(var turn:Color,val actionManager:ActionManager){
 
   def isWin:Boolean = actionManager.isCheckMate(turn)
 
+  def checkedKingPosition:Option[Position] = actionManager.checkedKingPosition(turn)
+
   def winner: Color = turn.other
 
   def isAction(from:Position,to:Position): Boolean =
