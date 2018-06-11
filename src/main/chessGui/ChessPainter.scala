@@ -119,7 +119,7 @@ class ChessPainter(val squareSize: Int,var gameManager: GameManager) {
     def drawTurnLine():Unit ={
       val oldPaint = g.getPaint
       val oldStroke = g.getStroke
-      g.setPaint(pieceBlack)
+      g.setPaint(moveColor)
       g.setStroke(new BasicStroke(3f))
       val startX = squareSize/2
       val length = squareSize * 8
